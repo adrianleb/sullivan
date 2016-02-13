@@ -30,6 +30,7 @@ export default class Sullivan {
     this.sizes = sizes;
     this.colors = colors;
     this.textSizes = textSizes;
+    this.rawUtils = u;
     this.inline = D;
 
   }
