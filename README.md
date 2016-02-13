@@ -5,10 +5,11 @@ Toolkit to quickly build visual interfaces in JS.
 
 Uses Aphrodite [https://github.com/Khan/aphrodite](https://github.com/Khan/aphrodite) under the hood to dynamically generate classnames and inject styles.
 
-Provides a catalogue of style utilities (somewhat [BEM](https://en.bem.info/)) inspired.
+Provides a catalogue of style utilities (somewhat [BEM](https://en.bem.info/) inspired).
 
 Includes a set of transform functions to inject dynamic styles.
 
+**Totally WIP**
 
 ## Installation
 
@@ -45,7 +46,7 @@ export sullivan;
 
 Then inside your component:
 
-```
+```js
 import sullivan from '..';
 
 const FunkyComponent = () => {
@@ -76,5 +77,26 @@ Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create method`
 
 ### inline
 Functional utils returning an object with a transformed css declaration.
+
+##Utils
+
+New utils are currently being added, this is the current list:
+- spacing
+- disp
+- bg
+- svg
+- text
+- flex
+
+#### spacing
+Spacing utils are maps of margins and paddings,
+for ease of use they are not namespaced by `spacing` but shorthanded based on their function:
+- ma/pa: Margin/Padding All (top, right, bottom, left)
+- mv/pv: Margin/Padding Vertical (top, bottom)
+- mh/ph: Margin/Padding Horizontal (right, left)
+- mt/pt: Margin/Padding Top
+- mb/pb: Margin/Padding Bottom
+- ml/pl: Margin/Padding Left
+- mr/pr: Margin/Padding Right
 
 
