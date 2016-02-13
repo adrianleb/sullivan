@@ -29,7 +29,7 @@ var Sullivan = require('sullivan').default
 
 ## Usage
 
-initialize the singleton somewhere in your project, Sullivan comes with opinional defaults but you should pass in your own map of values according to your project styleguide.
+Initialize the singleton somewhere in your project, Sullivan comes with opinional defaults but you should pass in your own map of values according to your project styleguide.
 
 ```js
 
@@ -78,7 +78,7 @@ Alias for Aphrodite's `css` object.
 Catalogue of small abstractions around common css patterns.
 
 ### utils
-Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create method` and ready for injection using `class`
+Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create` method and ready for injection using `class`
 
 ### inline
 Functional utils returning an object with a transformed css declaration.
@@ -93,18 +93,117 @@ New utils are currently being added, this is the current list:
 - text
 - flex
 
-#### spacing
-Spacing utils are maps of margins and paddings,
+#### Spacing
+**requires sizes**
+
+mapping to margins and paddings according to passed in size values,
 for ease of use they are not namespaced by `spacing` but shorthanded based on their function:
-- ma/pa: Margin/Padding All (top, right, bottom, left)
-- mv/pv: Margin/Padding Vertical (top, bottom)
-- mh/ph: Margin/Padding Horizontal (right, left)
-- mt/pt: Margin/Padding Top
-- mb/pb: Margin/Padding Bottom
-- ml/pl: Margin/Padding Left
-- mr/pr: Margin/Padding Right
+- `ma/pa`: Margin/Padding All (top, right, bottom, left)
+- `mv/pv`: Margin/Padding Vertical (top, bottom)
+- `mh/ph`: Margin/Padding Horizontal (right, left)
+- `mt/pt`: Margin/Padding Top
+- `mb/pb`: Margin/Padding Bottom
+- `ml/pl`: Margin/Padding Left
+- `mr/pr`: Margin/Padding Right
+
+the values are based on what you pass through the `sizes` argument.
+
+example based on defaults:
+`util.mt.small // outputs a classname with {margin-top: 5px}`
+
+#### Disp
+** no requirements**
+mapping to css display values
+- `inline` : {display: inline}
+- `inlineBlock` : {display: inline-block}
+- `block` : {display: block}
+- `flex` : {display: flex}
+
+example:
+`util.disp.flex // outputs a classname with {display: flex}`
+
+#### BG
+** requires colors**
+
+mapping to background-color values according to passed in colors, also a small set of quick patterns.
+
+example based on defaults:
+`util.bg.black // outputs a classname with {background-color: '#000'}`
+
+##### bg.cover
+outputs:
+```css
+{
+  background-size: 'cover',
+  background-position: 'center',
+  background-repeat: 'no-repeat'
+}
+```
+
+#### svg
+** requires colors**
+
+mapping to fill values according to passed in colors.
+
+example based on defaults:
+`util.svg.black // outputs a classname with {fill: '#000'}`
+
+#### text
+** requires textSizes and colors**
+
+mapping to color, size and weights values according to passed in maps and a set of utils
+
+example color based on defaults:
+`util.text.black // outputs a classname with {color: '#000'}`
+
+example size based on defaults:
+`util.text.small // outputs a classname with {font-size: '12px'}`
+
+example weight:
+`util.text.light // outputs a classname with {font-weight: '300'}`
+
+#### flex
+mapping around the flex syntax (which can be a bit verbosed), also a small set of quick patterns.
+
+Properties:
+- `align`: alignItems
+- `alignSelf`: alignSelf
+- `justify`: justifyContent
+
+Values:
+- `Start`: flex-start
+- `End`: flex-end
+- `Center`: center
+- `Around`: space-around
+- `Between`: space-between
+
+with properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):
+`util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`
+`util.flex.justifyAround // outputs a classname with {justify-content: 'space-around'}`
+
+##### flex.center
+outputs:
+```
+{
+  display: 'flex',
+  align-items: 'center',
+  justify-content: 'center'
+}
+```
+
+##### flex.column
+outputs:
+```
+{
+  display: 'flex',
+  flex-direction: 'column'
+}
+```
+if you need to do anything else with flex, you're on your own.
 
 
 ## TODO
 
-- finish this readme file to begin with
+- Finish this readme file to begin with.
+- Truncation text util.
+- Some tests would be nice.
