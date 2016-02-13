@@ -1,7 +1,7 @@
 {
   "name": "sullivan",
-  "version": "0.0.1",
-  "description": "PUT-YOUR-PACKAGE-DESCRIPTION-HERE",
+  "version": "0.0.2",
+  "description": "Tools to quickly build interfaces in JS",
   "format": "es6",
   "main": "index.js",
   "browser": "global.js",
