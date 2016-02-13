@@ -1,14 +1,16 @@
-// Import this if you want to polyfill things like Promise, Object.values(),
-// etc. Includes Facebook Regenerator if you're using generators or async
-// functions.
-import 'babel-polyfill'
 import { StyleSheet, css } from 'aphrodite';
 import utils from './utils';
 import pickBy from 'lodash.pickby';
 import isFunction from 'lodash.isfunction';
+import defaultSizes from './default/sizes';
+import defaultColors from './default/colors';
+import defaultTextsizes from './default/textSizes';
 
-class _Sullivan {
-  constructor({sizes = {}, colors = {}, textSizes = {}, z = {}}) {
+export default class Sullivan {
+  constructor({sizes = defaultSizes, colors = defaultColors, textSizes = defaultTextsizes, z = {}}) {
+    this.sheet = StyleSheet;
+    this.class = css;
+
     const D = {};
 
     const u = utils({
@@ -21,7 +23,7 @@ class _Sullivan {
       // filter out dynamic styles
       // create class names
       D[c] = pickBy(u[c], (v) => isFunction(v));
-      p[c] = this.sheet(pickBy(u[c], (v) => !isFunction(v)));
+      p[c] = this.sheet.create(pickBy(u[c], (v) => !isFunction(v)));
       return p;
     }, {});
 
@@ -29,15 +31,6 @@ class _Sullivan {
     this.colors = colors;
     this.textSizes = textSizes;
     this.inline = D;
-  }
 
-  sheet(...args) {
-    return StyleSheet(...args)
-  }
-
-  class(...args) {
-    return css(...args);
   }
 }
-
-export let Sullivan = _Sullivan;

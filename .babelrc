@@ -23,7 +23,6 @@
         "transform-es2015-unicode-regex",
         "transform-regenerator",
         "transform-async-to-generator",
-        "transform-export-extensions",
         "transform-object-rest-spread",
         "transform-object-assign",
         "transform-es5-property-mutators"

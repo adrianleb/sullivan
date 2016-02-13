@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-
 import spacing from './spacing';
 import text from './text';
 import flex from './flex';
