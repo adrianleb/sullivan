@@ -26,7 +26,7 @@ Includes a set of transform functions to inject dynamic styles.
 
 Sullivan is built with React in mind but doesn't depend on it so can be used in other non-react project.
 
-**Totally WIP**
+**Totally WIP: Here be dragons**
 
 ## Installation
 
@@ -82,6 +82,37 @@ const FunkyComponent = () => {
   );
 };
 ```
+
+### Using your own Styleguide
+when bootstraping Sullivan you can pass in maps of:
+- `sizes`: for margins and paddings
+- `colors`: for backgrounds, text colors, svg colors...
+- `textSizes`: for text sizes (good ol' typography)
+- `z`: for depth mapping
+
+A styleguide map is a simple object with a human readable key (to be used across utils) and a value;
+
+The defaults included uses "t-shirt sizes" and a modular scale for sizes and textSizes, example:
+
+```js
+const baseSize = 5;
+
+export default {
+  auto: 'auto',
+  none: 0,
+  xsmall: 2,
+  small: baseSize,
+  medium: baseSize * 2,
+  large: baseSize * 3,
+  xlarge: baseSize * 4,
+  xxlarge: baseSize * 6,
+  xxxlarge: baseSize * 9,
+  huge: baseSize * 12
+};
+```
+
+You're welcome to call your keys anything you want, just be careful not to make them clash with eachother (for example, calling a color 'medium' and a textSize 'medium' will break your text utils, but I mean...c'mon..).
+
 
 ## API
 
@@ -230,7 +261,10 @@ If you need to do anything else with flex, you're on your own.
 ## TODO
 - Finish this readme file.
 - Truncation text util.
+- A helper to generate a "living styleguide" page based on passed in values and used utils.
 - Some tests would be nice.
+- A website would be cool.
+
 
 # Contributing
 Please do, this is built on top of other amazing open-source projects and belongs to the community.
