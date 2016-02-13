@@ -51,11 +51,16 @@ import sullivan from '..';
 
 const FunkyComponent = () => {
   return (
-    <div className={sullivan.class(
-      sullivan.util.flex.center,
-      sullivan.util.text.yellow
-    )}>
-      Content will be flex centered and yellow!
+    <div 
+      className={sullivan.class(
+        sullivan.util.flex.center,
+        sullivan.util.text.yellow,
+        sullivan.util.bg.cover
+      )} 
+      style={
+        sullivan.inline.bg.image("https://placekitten.com/200/300")
+      }>
+      Content will be flex centered and yellow with a pretty kitten covering the background!
     </div>
   );
 };
