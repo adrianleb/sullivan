@@ -105,3 +105,6 @@ for ease of use they are not namespaced by `spacing` but shorthanded based on th
 - mr/pr: Margin/Padding Right
 
 
+## TODO
+
+- finish this readme file to begin with
