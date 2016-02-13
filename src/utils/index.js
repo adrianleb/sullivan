@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import spacing from './spacing';
 import text from './text';
 import flex from './flex';
@@ -14,6 +16,6 @@ export default ({sizes, textSizes, colors}) => {
     spacing(sizes),
     bg(colors),
     svg(colors),
-    text({textSizes, colors}),
+    text({textSizes, colors})
   );
 };

@@ -55,7 +55,10 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.0.0",
     "babel-plugin-transform-es2015-modules-amd": "^6.0.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.0.0",
-    "babel-plugin-transform-es2015-modules-umd": "^6.0.0"
+    "babel-plugin-transform-es2015-modules-umd": "^6.0.0",
+    "babel-plugin-transform-export-extensions": "^6.4.0",
+    "babel-plugin-transform-object-assign": "^6.3.13",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13"
   },
   "jspm": {
     "registry": "jspm",

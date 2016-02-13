@@ -8,7 +8,7 @@ export default (sizes = null) => {
     declarations.map(d => {
       o[`${d[0]}${p}`] = {};
       Object.keys(sizes).map(s => {
-        o[`${d[0]}${p}`][s] = () => {
+        o[`${d[0]}${p}`][s] = (() => {
           const style = {};
 
           if (!!~['a', 'v', 't'].indexOf(p)) style[`${d[1]}Top`] = sizes[s];
@@ -16,7 +16,7 @@ export default (sizes = null) => {
           if (!!~['a', 'h', 'l'].indexOf(p)) style[`${d[1]}Left`] = sizes[s];
           if (!!~['a', 'h', 'r'].indexOf(p)) style[`${d[1]}Right`] = sizes[s];
           return style;
-        }();
+        })();
       });
     });
     return o;
