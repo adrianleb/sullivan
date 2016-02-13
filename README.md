@@ -7,12 +7,9 @@ Opinionated toolkit to quickly build visual interfaces in JS.
 
 **Why?**
 
-:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.
-
-:white_check_mark: Because some css patterns are really annoying to rewrite all the time.
-
-:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.
-
+:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.  
+:white_check_mark: Because some css patterns are really annoying to rewrite all the time.  
+:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.  
 :white_check_mark: Because we're lazy developers.
 
 **How?**
