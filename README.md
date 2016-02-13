@@ -1,13 +1,30 @@
 Sullivan
 ===========
 
-Toolkit to quickly build visual interfaces in JS.
+**What?**
+
+Opinionated toolkit to quickly build visual interfaces in JS.
+
+**Why?**
+
+Because we're humans who make mistakes and need constraints around a predefined styleguide.
+Because some css patterns are really annoying to rewrite all the time.
+Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.
+Because we're lazy developers.
+
+**How?**
 
 Uses Aphrodite [https://github.com/Khan/aphrodite](https://github.com/Khan/aphrodite) under the hood to dynamically generate classnames and inject styles.
 
+prefixes everything so you don't have to think about it (thanks to Aphrodite);
+
 Provides a catalogue of style utilities (somewhat [BEM](https://en.bem.info/) inspired).
 
+Abstracts around a few overly verbosed css syntaxes (I'm looking at you flex).
+
 Includes a set of transform functions to inject dynamic styles.
+
+Sullivan is built with React in mind but doesn't depend on it so can be used in other non-react project.
 
 **Totally WIP**
 
@@ -84,8 +101,7 @@ Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create` method
 Functional utils returning an object with a transformed css declaration.
 
 ##Utils
-
-New utils are currently being added, this is the current list:
+New utils are constantly being added, this is the current list:
 - spacing
 - disp
 - bg
@@ -94,9 +110,9 @@ New utils are currently being added, this is the current list:
 - flex
 
 #### Spacing
-**requires sizes**
+**Requires sizes**
 
-mapping to margins and paddings according to passed in size values,
+Mapping to margins and paddings according to passed in size values,
 for ease of use they are not namespaced by `spacing` but shorthanded based on their function:
 - `ma/pa`: Margin/Padding All (top, right, bottom, left)
 - `mv/pv`: Margin/Padding Vertical (top, bottom)
@@ -106,32 +122,36 @@ for ease of use they are not namespaced by `spacing` but shorthanded based on th
 - `ml/pl`: Margin/Padding Left
 - `mr/pr`: Margin/Padding Right
 
-the values are based on what you pass through the `sizes` argument.
+The values are based on what you pass through the `sizes` argument.
 
-example based on defaults:
+Example based on defaults:
+
 `util.mt.small // outputs a classname with {margin-top: 5px}`
 
 #### Disp
-** no requirements**
-mapping to css display values
+**No requirements**
+
+Mapping to css display values
 - `inline` : {display: inline}
 - `inlineBlock` : {display: inline-block}
 - `block` : {display: block}
 - `flex` : {display: flex}
 
-example:
+Example:
+
 `util.disp.flex // outputs a classname with {display: flex}`
 
 #### BG
-** requires colors**
+**Requires colors**
 
-mapping to background-color values according to passed in colors, also a small set of quick patterns.
+Mapping to background-color values according to passed in colors, also a small set of quick patterns.
 
-example based on defaults:
+Example based on defaults:
+
 `util.bg.black // outputs a classname with {background-color: '#000'}`
 
 ##### bg.cover
-outputs:
+Outputs:
 ```css
 {
   background-size: 'cover',
@@ -140,30 +160,34 @@ outputs:
 }
 ```
 
-#### svg
-** requires colors**
+#### SVG
+**Requires colors**
 
-mapping to fill values according to passed in colors.
+Mapping to fill values according to passed in colors.
 
-example based on defaults:
+Example based on defaults:
+
 `util.svg.black // outputs a classname with {fill: '#000'}`
 
-#### text
-** requires textSizes and colors**
+#### Text
+**Requires textSizes and colors**
 
-mapping to color, size and weights values according to passed in maps and a set of utils
+Mapping to color, size and weights values according to passed in maps and a set of utils
 
-example color based on defaults:
+Example color based on defaults:
+
 `util.text.black // outputs a classname with {color: '#000'}`
 
-example size based on defaults:
+Example size based on defaults:
+
 `util.text.small // outputs a classname with {font-size: '12px'}`
 
-example weight:
+Example weight:
+
 `util.text.light // outputs a classname with {font-weight: '300'}`
 
-#### flex
-mapping around the flex syntax (which can be a bit verbosed), also a small set of quick patterns.
+#### Flex
+Mapping around the flex syntax (which can be a bit verbosed), also a small set of quick patterns.
 
 Properties:
 - `align`: alignItems
@@ -177,12 +201,14 @@ Values:
 - `Around`: space-around
 - `Between`: space-between
 
-with properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):
+With properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):
+
 `util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`
+
 `util.flex.justifyAround // outputs a classname with {justify-content: 'space-around'}`
 
 ##### flex.center
-outputs:
+Outputs:
 ```
 {
   display: 'flex',
@@ -192,18 +218,33 @@ outputs:
 ```
 
 ##### flex.column
-outputs:
+Outputs:
 ```
 {
   display: 'flex',
   flex-direction: 'column'
 }
 ```
-if you need to do anything else with flex, you're on your own.
-
+If you need to do anything else with flex, you're on your own.
 
 ## TODO
-
-- Finish this readme file to begin with.
+- Finish this readme file.
 - Truncation text util.
 - Some tests would be nice.
+
+# Contributing
+Please do, this is built on top of other amazing open-source projects and belongs to the community.
+- Ideas? suggest anything over an Issue or PR!
+- Suggestions? Read above!
+- bugs? Read above!
+- this code smells and you can do better? Yes! You know what to do!
+
+# License (MIT)
+
+Copyright (c) 2016 Adrian le Bas
+
+Includes works from https://github.com/Khan/aphrodite, which is MIT licensed with the following copyright:
+
+Copyright (c) 2016 Khan Academy
+
+Which itself includes work from other libraries...
