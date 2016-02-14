@@ -116,20 +116,34 @@ You're welcome to call your keys anything you want, just be careful not to make 
 
 ## API
 
-### sheet
+### `sheet`
 Alias for Aphrodite's `Stylesheet` object.
 
-### class
+### `class`
 Alias for Aphrodite's `css` object.
 
-### rawUtil
+### `rawUtil`
 Catalogue of small abstractions around common css patterns.
 
-### utils
+### `util`
 Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create` method and ready for injection using `class`
 
-### inline
+### `inline`
 Functional utils returning an object with a transformed css declaration.
+
+### `sizes`
+the same object passed in (or the default) of sizes to be used in custom stylesheets.
+
+### `colors`
+the same object passed in (or the default) of colors to be used in custom stylesheets.
+
+### `textSizes`
+the same object passed in (or the default) of text sizes to be used in custom stylesheets.
+
+### `z`
+the same object passed in (or the default) of z-indexes to be used in custom stylesheets.
+
+
 
 ##Utils
 New utils are constantly being added, this is the current list:
@@ -139,6 +153,7 @@ New utils are constantly being added, this is the current list:
 - svg
 - text
 - flex
+
 
 #### Spacing
 **Requires sizes**
