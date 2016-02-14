@@ -1,6 +1,6 @@
 {
   "name": "sullivan",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Tools to quickly build interfaces in JS",
   "format": "es6",
   "main": "index.js",
@@ -84,5 +84,15 @@
     "helpers",
     "UI"
   ],
-  "author": "Adrian le Bas"
+  "maintainers": [
+    {
+      "name": "adrianleb",
+      "email": "adrian@adrians.info"
+    }
+  ],
+  "author": {
+    "email": "adrian@adrians.info",
+    "name": "Adrian le Bas",
+    "url": "http://adrians.info"
+  }
 }

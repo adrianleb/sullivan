@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-
+npm-debug.log
 # ignore build files (but don't ignore Webpack's config file).
 /*.js
 /*.js.map
