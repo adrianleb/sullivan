@@ -1,6 +1,6 @@
 {
   "name": "sullivan",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Tools to quickly build interfaces in JS",
   "format": "es6",
   "main": "index.js",

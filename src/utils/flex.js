@@ -17,14 +17,15 @@ const flex = properties.reduce((o, p) => {
   return o;
 }, {});
 
-flex.center = Object.assign({}, flex.display, {
+flex.center = {
+  display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'
-});
+};
 
-flex.column = Object.assign({}, flex.display, {
+flex.column = {
   display: 'flex',
   flexDirection: 'column'
-});
+};
 
 export default flex;
