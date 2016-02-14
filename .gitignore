@@ -12,4 +12,5 @@ node_modules
 # as many places as possible. If you don't edit this list, then your build
 # files will be listed when you run `git status`. Optionally, you might like to
 # just check those files into git. It's up to you.
-/foo
+/default
+
