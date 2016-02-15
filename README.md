@@ -51,11 +51,14 @@ Initialize the singleton somewhere in your project, Sullivan comes with opiniona
 ```js
 
 import Sullivan from 'sullivan';
+import {sizes, colors, textSizes, lineHeights, z} from './your-styleguide';
 
 const sullivan = new Sullivan({
   sizes,
   colors,
-  textSizes
+  textSizes,
+  lineHeights,
+  z
 });
 
 export sullivan;
@@ -83,12 +86,32 @@ const FunkyComponent = () => {
 };
 ```
 
+You might find sullivan's syntax overly verbosed (for the sake of human readability).
+If thats the case, obfuscate to your preference.
+```js
+const S = {
+  u: sullivan.utils, 
+  ru: sullivan.rawUtils, 
+  S: sullivan.sheet, 
+  c: sullivan.class, 
+}
+
+// the API becomes way shorter:
+className={S.c(
+ S.u.flex.center, 
+ S.u.text.tight,
+ S.u.text.large,
+ S.u.bg.red,
+)}
+```
+
 ### Using your own Styleguide
 when bootstraping Sullivan you can pass in maps of:
-- `sizes`: for margins and paddings
+- `sizes`: for margins and paddings, (default to t-shirt sizes syntax)
 - `colors`: for backgrounds, text colors, svg colors...
-- `textSizes`: for text sizes (good ol' typography)
-- `z`: for depth mapping
+- `textSizes`: for text sizes (good ol' typography), (default to t-shirt sizes syntax)
+- `lieHeights`: for text sizes (good ol' typography), (default to "tightness" sizes)
+- `z`: for depth mapping, (default to z[0-9])
 
 A styleguide map is a simple object with a human readable key (to be used across utils) and a value;
 
@@ -215,6 +238,26 @@ Example based on defaults:
 
 `util.svg.black // outputs a classname with {fill: '#000'}`
 
+#### Z
+**Requires z**
+
+Mapping to z-index values according to passed in z map.
+
+Example based on defaults:
+
+`util.z.z1 // outputs a classname with {z-index: '1'}`
+
+z-index is a special case because beside the private API here provided you should also apply your own pattern on top with what makes sense to you:
+
+```
+sullivan.myZ = {
+ nav: sullivan.z.z5,
+ modal: sullivan.z9
+ // etc...
+}
+```
+
+
 #### Text
 **Requires textSizes and colors**
 
@@ -228,9 +271,24 @@ Example size based on defaults:
 
 `util.text.small // outputs a classname with {font-size: '12px'}`
 
+Example line-height based on defaults:
+
+`util.text.loose // outputs a classname with {line-height: 1.2}`
+
 Example weight:
 
 `util.text.light // outputs a classname with {font-weight: '300'}`
+
+##### text.truncate
+Outputs:
+```
+{
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
 
 #### Flex
 Mapping around the flex syntax (which can be a bit verbosed), also a small set of quick patterns.
