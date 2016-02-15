@@ -4,9 +4,11 @@ import flex from './flex';
 import bg from './bg';
 import disp from './disp';
 import svg from './svg';
+import zUtil from './z';
 
 // TODO validate maps passed in...
 export default ({sizes, textSizes, colors, lineHeights, z}) => {
+  z = zUtil(z);
   return Object.assign(
     {},
     {disp},
@@ -15,6 +17,6 @@ export default ({sizes, textSizes, colors, lineHeights, z}) => {
     bg(colors),
     svg(colors),
     text({textSizes, colors, lineHeights}),
-    z(z)
+    z
   );
 };

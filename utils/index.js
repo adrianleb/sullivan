@@ -30,6 +30,10 @@ var _svg = require('./svg');
 
 var _svg2 = _interopRequireDefault(_svg);
 
+var _z = require('./z');
+
+var _z2 = _interopRequireDefault(_z);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO validate maps passed in...
@@ -41,6 +45,7 @@ exports.default = function (_ref) {
   var lineHeights = _ref.lineHeights;
   var z = _ref.z;
 
-  return _extends({}, { disp: _disp2.default }, { flex: _flex2.default }, (0, _spacing2.default)(sizes), (0, _bg2.default)(colors), (0, _svg2.default)(colors), (0, _text2.default)({ textSizes: textSizes, colors: colors, lineHeights: lineHeights }), z(z));
+  z = (0, _z2.default)(z);
+  return _extends({}, { disp: _disp2.default }, { flex: _flex2.default }, (0, _spacing2.default)(sizes), (0, _bg2.default)(colors), (0, _svg2.default)(colors), (0, _text2.default)({ textSizes: textSizes, colors: colors, lineHeights: lineHeights }), z);
 };
 //# sourceMappingURL=index.js.map
