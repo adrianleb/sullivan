@@ -140,10 +140,12 @@ You're welcome to call your keys anything you want, just be careful not to make 
 ## API
 
 ### `sheet`
-Alias for Aphrodite's `Stylesheet` object.
+Alias for Aphrodite's `StyleSheet` object.
+`sheet.create` will generate a new set of unique classnames ready for injection, based on a passed in object of styles.
 
 ### `class`
 Alias for Aphrodite's `css` object.
+Combines generated classnames (either from `StyleSheet.create` or from `sullivan.util`) left to right and injects styles into document `head`.
 
 ### `rawUtil`
 Catalogue of small abstractions around common css patterns.
