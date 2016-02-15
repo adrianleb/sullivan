@@ -31,10 +31,10 @@ export default ({textSizes, colors, lineHeights}) => {
   }
 
   text.truncate = {
-    maxWidth: '100%';
-    whiteSpace: 'nowrap';
-    overflow: 'hidden';
-    textOverflow: 'ellipsis';
+    maxWidth: '100%',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   };
 
   return {text};
