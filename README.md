@@ -4,6 +4,7 @@ Sullivan
 **What?**
 
 Opinionated toolkit to quickly build visual interfaces in JS.
+For now mostly a POC.
 
 **Why?**
 
