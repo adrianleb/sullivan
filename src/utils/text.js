@@ -13,19 +13,9 @@ export default ({textSizes, colors, lineHeights}) => {
   }, {});
 
   if (textSizes) {
-    // SIZES
     Object.keys(textSizes).map(s => {
       text[s] = { fontSize: textSizes[s] };
     });
-
-    if (textSizes.xsmall) {
-      // this is specific...
-      text.eyebrow = {
-        fontSize: textSizes.xsmall,
-        letterSpacing: '0.7px',
-        textTransform: 'uppercase'
-      };
-    }
   }
 
   if (colors) {
@@ -39,6 +29,13 @@ export default ({textSizes, colors, lineHeights}) => {
       text[s] = { lineHeight: lineHeights[s] };
     });
   }
+
+  text.truncate = {
+    maxWidth: '100%';
+    whiteSpace: 'nowrap';
+    overflow: 'hidden';
+    textOverflow: 'ellipsis';
+  };
 
   return {text};
 };
