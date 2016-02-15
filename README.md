@@ -3,7 +3,7 @@ Sullivan
 
 **What?**
 
-Opinionated toolkit to quickly build visual interfaces in JS.
+Opinionated toolkit to quickly build visual interfaces in JS.  
 For now mostly a POC.
 
 **Why?**
@@ -87,8 +87,8 @@ const FunkyComponent = () => {
 };
 ```
 
-You might find sullivan's syntax overly verbosed (for the sake of human readability).
-If thats the case, obfuscate to your preference.
+You might find sullivan's syntax overly verbosed (for the sake of human readability).  
+If thats the case, obfuscate to your preference.  
 ```js
 const S = {
   u: sullivan.utils, 
@@ -107,15 +107,14 @@ className={S.c(
 ```
 
 ### Using your own Styleguide
-when bootstraping Sullivan you can pass in maps of:
+When bootstraping Sullivan you can pass in maps of:  
 - `sizes`: for margins and paddings, (default to t-shirt sizes syntax)
 - `colors`: for backgrounds, text colors, svg colors...
 - `textSizes`: for text sizes (good ol' typography), (default to t-shirt sizes syntax)
 - `lieHeights`: for text sizes (good ol' typography), (default to "tightness" sizes)
 - `z`: for depth mapping, (default to z[0-9])
 
-A styleguide map is a simple object with a human readable key (to be used across utils) and a value;
-
+A styleguide map is a simple object with a human readable key (to be used across utils) and a value.  
 The defaults included uses "t-shirt sizes" and a modular scale for sizes and textSizes, example:
 
 ```js
@@ -136,7 +135,6 @@ export default {
 ```
 
 You're welcome to call your keys anything you want, just be careful not to make them clash with eachother (for example, calling a color 'medium' and a textSize 'medium' will break your text utils, but I mean...c'mon..).
-
 
 ## API
 
@@ -169,10 +167,8 @@ the same object passed in (or the default) of text sizes to be used in custom st
 ### `z`
 the same object passed in (or the default) of z-indexes to be used in custom stylesheets.
 
-
-
 ##Utils
-New utils are constantly being added, this is the current list:
+New utils are constantly being added, this is the current list:  
 - spacing
 - disp
 - bg
@@ -180,12 +176,11 @@ New utils are constantly being added, this is the current list:
 - text
 - flex
 
-
 #### Spacing
 **Requires sizes**
 
 Mapping to margins and paddings according to passed in size values,
-for ease of use they are not namespaced by `spacing` but shorthanded based on their function:
+for ease of use they are not namespaced by `spacing` but shorthanded based on their function:  
 - `ma/pa`: Margin/Padding All (top, right, bottom, left)
 - `mv/pv`: Margin/Padding Vertical (top, bottom)
 - `mh/ph`: Margin/Padding Horizontal (right, left)
@@ -194,10 +189,8 @@ for ease of use they are not namespaced by `spacing` but shorthanded based on th
 - `ml/pl`: Margin/Padding Left
 - `mr/pr`: Margin/Padding Right
 
-The values are based on what you pass through the `sizes` argument.
-
-Example based on defaults:
-
+The values are based on what you pass through the `sizes` argument.  
+Example based on defaults:  
 `util.mt.small // outputs a classname with {margin-top: 5px}`
 
 #### Disp
@@ -209,8 +202,7 @@ Mapping to css display values
 - `block` : {display: block}
 - `flex` : {display: flex}
 
-Example:
-
+Example:  
 `util.disp.flex // outputs a classname with {display: flex}`
 
 #### BG
@@ -218,8 +210,7 @@ Example:
 
 Mapping to background-color values according to passed in colors, also a small set of quick patterns.
 
-Example based on defaults:
-
+Example based on defaults:  
 `util.bg.black // outputs a classname with {background-color: '#000'}`
 
 ##### bg.cover
@@ -235,23 +226,18 @@ Outputs:
 #### SVG
 **Requires colors**
 
-Mapping to fill values according to passed in colors.
-
-Example based on defaults:
-
+Mapping to fill values according to passed in colors.  
+Example based on defaults:  
 `util.svg.black // outputs a classname with {fill: '#000'}`
 
 #### Z
 **Requires z**
 
-Mapping to z-index values according to passed in z map.
-
-Example based on defaults:
-
+Mapping to z-index values according to passed in z map.  
+Example based on defaults:  
 `util.z.z1 // outputs a classname with {z-index: '1'}`
 
-z-index is a special case because beside the private API here provided you should also apply your own pattern on top with what makes sense to you:
-
+z-index is a special case because beside the private API here provided you should also apply your own pattern on top with what makes sense to you:  
 ```
 sullivan.myZ = {
  nav: sullivan.z.z5,
@@ -264,22 +250,17 @@ sullivan.myZ = {
 #### Text
 **Requires textSizes and colors**
 
-Mapping to color, size and weights values according to passed in maps and a set of utils
-
-Example color based on defaults:
-
+Mapping to color, size and weights values according to passed in maps and a set of utils  
+Example color based on defaults:  
 `util.text.black // outputs a classname with {color: '#000'}`
 
-Example size based on defaults:
-
+Example size based on defaults:  
 `util.text.small // outputs a classname with {font-size: '12px'}`
 
-Example line-height based on defaults:
-
+Example line-height based on defaults:  
 `util.text.loose // outputs a classname with {line-height: 1.2}`
 
-Example weight:
-
+Example weight:  
 `util.text.light // outputs a classname with {font-weight: '300'}`
 
 ##### text.truncate
@@ -308,10 +289,8 @@ Values:
 - `Around`: space-around
 - `Between`: space-between
 
-With properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):
-
-`util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`
-
+With properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):  
+`util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`  
 `util.flex.justifyAround // outputs a classname with {justify-content: 'space-around'}`
 
 ##### flex.center
@@ -332,7 +311,7 @@ Outputs:
   flex-direction: 'column'
 }
 ```
-If you need to do anything else with flex, you're on your own.
+If you need to do anything else with flex, you're on your own.  
 
 ## TODO
 - Finish this readme file.
@@ -340,7 +319,6 @@ If you need to do anything else with flex, you're on your own.
 - A helper to generate a "living styleguide" page based on passed in values and used utils.
 - Some tests would be nice.
 - A website would be cool.
-
 
 # Contributing
 Please do, this is built on top of other amazing open-source projects and belongs to the community.
