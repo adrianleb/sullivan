@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = function (_ref) {
   var textSizes = _ref.textSizes;
   var colors = _ref.colors;
+  var lineHeights = _ref.lineHeights;
 
   // FONT-WEIGHT
   // TODO use right vals
@@ -34,6 +35,12 @@ exports.default = function (_ref) {
   if (colors) {
     Object.keys(colors).map(function (c) {
       text[c] = { color: colors[c] };
+    });
+  }
+
+  if (lineHeights) {
+    Object.keys(lineHeights).map(function (s) {
+      text[s] = { lineHeight: lineHeights[s] };
     });
   }
 

@@ -1,4 +1,4 @@
-export default ({textSizes, colors}) => {
+export default ({textSizes, colors, lineHeights}) => {
   // FONT-WEIGHT
   // TODO use right vals
   const text = [
@@ -31,6 +31,12 @@ export default ({textSizes, colors}) => {
   if (colors) {
     Object.keys(colors).map(c => {
       text[c] = { color: colors[c] };
+    });
+  }
+
+  if (lineHeights) {
+    Object.keys(lineHeights).map(s => {
+      text[s] = { lineHeight: lineHeights[s] };
     });
   }
 

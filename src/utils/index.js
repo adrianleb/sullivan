@@ -6,7 +6,7 @@ import disp from './disp';
 import svg from './svg';
 
 // TODO validate maps passed in...
-export default ({sizes, textSizes, colors}) => {
+export default ({sizes, textSizes, colors, lineHeights, z}) => {
   return Object.assign(
     {},
     {disp},
@@ -14,6 +14,7 @@ export default ({sizes, textSizes, colors}) => {
     spacing(sizes),
     bg(colors),
     svg(colors),
-    text({textSizes, colors})
+    text({textSizes, colors, lineHeights}),
+    z(z)
   );
 };

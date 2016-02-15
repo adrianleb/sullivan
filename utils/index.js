@@ -38,7 +38,9 @@ exports.default = function (_ref) {
   var sizes = _ref.sizes;
   var textSizes = _ref.textSizes;
   var colors = _ref.colors;
+  var lineHeights = _ref.lineHeights;
+  var z = _ref.z;
 
-  return _extends({}, { disp: _disp2.default }, { flex: _flex2.default }, (0, _spacing2.default)(sizes), (0, _bg2.default)(colors), (0, _svg2.default)(colors), (0, _text2.default)({ textSizes: textSizes, colors: colors }));
+  return _extends({}, { disp: _disp2.default }, { flex: _flex2.default }, (0, _spacing2.default)(sizes), (0, _bg2.default)(colors), (0, _svg2.default)(colors), (0, _text2.default)({ textSizes: textSizes, colors: colors, lineHeights: lineHeights }), z(z));
 };
 //# sourceMappingURL=index.js.map

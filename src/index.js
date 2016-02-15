@@ -5,9 +5,16 @@ import isFunction from 'lodash.isfunction';
 import defaultSizes from './default/sizes';
 import defaultColors from './default/colors';
 import defaultTextsizes from './default/textSizes';
+import defaultLineHeights from './default/lineHeights';
+import defaultZ from './default/z';
 
 export default class Sullivan {
-  constructor({sizes = defaultSizes, colors = defaultColors, textSizes = defaultTextsizes, z = {}}) {
+  constructor({
+    sizes = defaultSizes,
+    colors = defaultColors,
+    textSizes = defaultTextsizes,
+    lineHeights = lineHeights,
+    z = defaultZ}) {
     this.sheet = StyleSheet;
     this.class = css;
 
@@ -16,7 +23,9 @@ export default class Sullivan {
     const u = utils({
       sizes,
       colors,
-      textSizes
+      textSizes,
+      lineHeights,
+      z
     });
 
     this.utils = Object.keys(u).reduce((p, c) => {
