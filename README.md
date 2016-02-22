@@ -3,14 +3,14 @@ Sullivan
 
 **What?**
 
-Opinionated toolkit to quickly build visual interfaces in JS.
+Opinionated toolkit to quickly build visual interfaces in JS.  
 For now mostly a POC.
 
 **Why?**
 
-:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.
-:white_check_mark: Because some css patterns are really annoying to rewrite all the time.
-:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.
+:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.  
+:white_check_mark: Because some css patterns are really annoying to rewrite all the time.  
+:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.  
 :white_check_mark: Because we're lazy developers.
 
 **How?**
@@ -314,21 +314,21 @@ Outputs:
 If you need to do anything else with flex, you're on your own.
 
 ## TODO
-- Finish this readme file.
-- Truncation text util.
-- A helper to generate a "living styleguide" page based on passed in values and used utils.
-- Some tests would be nice.
-- A website would be cool.
+- Finish this readme file.  
+- Truncation text util.  
+- A helper to generate a "living styleguide" page based on passed in values and used utils.  
+- Some tests would be nice.  
+- A website would be cool.  
 
 # Contributing
-Please do, this is built on top of other amazing open-source projects and belongs to the community.
-- Ideas? suggest anything over an Issue or PR!
-- Suggestions? Read above!
-- bugs? Read above!
-- this code smells and you can do better? Yes! You know what to do!
+Please do, this is built on top of other amazing open-source projects and belongs to the community.  
+- Ideas? suggest anything over an Issue or PR!  
+- Suggestions? Read above!  
+- bugs? Read above!  
+- this code smells and you can do better? Yes! You know what to do!  
 
 # Special Thanks
-This project initially sparked from working on small to big scale React.js related projects and feeling the pains of using CSS in JS, special mention to [Kontor.com](http://kontor.com) for giving me room to introduce and mature some of these concepts, also (@colindresj)[https://github.com/colindresj] and (@dkozma)[https://github.com/dkozma] for brainstorming ideas and giving suggestions.
+This project initially sparked from working on small to big scale React.js related projects and feeling the pains of using CSS in JS, special mention to [Kontor.com](http://kontor.com) for giving me room to introduce and mature some of these concepts, also [@colindresj] (https://github.com/colindresj) and [@dkozma](https://github.com/dkozma) for brainstorming ideas and giving suggestions.
 
 # License (MIT)
 
