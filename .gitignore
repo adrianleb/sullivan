@@ -14,5 +14,7 @@ npm-debug.log
 # just check those files into git. It's up to you.
 /default
 /utils
+/helpers
+
 
 
