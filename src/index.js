@@ -1,20 +1,11 @@
 import { StyleSheet, css } from 'aphrodite';
 import utils from './utils';
 import pickBy from 'lodash.pickby';
+import generateMediaQueries from './generateMediaQueries';
 import isFunction from 'lodash.isfunction';
-import defaultSizes from './default/sizes';
-import defaultColors from './default/colors';
-import defaultTextsizes from './default/textSizes';
-import defaultLineHeights from './default/lineHeights';
-import defaultZ from './default/z';
 
 export default class Sullivan {
-  constructor({
-    sizes = defaultSizes,
-    colors = defaultColors,
-    textSizes = defaultTextsizes,
-    lineHeights = lineHeights,
-    z = defaultZ}) {
+  constructor({ sizes, colors, textSizes, lineHeights, z, mediaQueries}) {
     this.sheet = StyleSheet;
     this.class = css;
 
@@ -36,11 +27,14 @@ export default class Sullivan {
       return p;
     }, {});
 
-    this.sizes = sizes;
-    this.colors = colors;
-    this.textSizes = textSizes;
+
+
     this.rawUtils = u;
     this.inline = D;
+
+    if (mediaQueries) {
+      this.mq = generateMediaQueries(mediaQueries);
+    }
 
   }
 }

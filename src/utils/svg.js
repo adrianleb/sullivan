@@ -1,7 +1,7 @@
-import reducer from './helpers/reducer';
+import propertyReducer from '../helpers/property-reducer';
 
 export default (colors = {}) => {
-  const svg = reducer(colors, 'fill');
+  const svg = propertyReducer(colors, 'fill');
 
   return {svg};
 };

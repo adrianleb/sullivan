@@ -3,14 +3,14 @@ Sullivan
 
 **What?**
 
-Opinionated toolkit to quickly build visual interfaces in JS.  
+Opinionated toolkit to quickly build visual interfaces in JS.
 For now mostly a POC.
 
 **Why?**
 
-:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.  
-:white_check_mark: Because some css patterns are really annoying to rewrite all the time.  
-:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.  
+:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.
+:white_check_mark: Because some css patterns are really annoying to rewrite all the time.
+:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.
 :white_check_mark: Because we're lazy developers.
 
 **How?**
@@ -72,12 +72,12 @@ import sullivan from '..';
 
 const FunkyComponent = () => {
   return (
-    <div 
+    <div
       className={sullivan.class(
         sullivan.util.flex.center,
         sullivan.util.text.yellow,
         sullivan.util.bg.cover
-      )} 
+      )}
       style={
         sullivan.inline.bg.image("https://placekitten.com/200/300")
       }>
@@ -87,19 +87,19 @@ const FunkyComponent = () => {
 };
 ```
 
-You might find sullivan's syntax overly verbosed (for the sake of human readability).  
-If thats the case, obfuscate to your preference.  
+You might find sullivan's syntax overly verbosed (for the sake of human readability).
+If thats the case, obfuscate to your preference.
 ```js
 const S = {
-  u: sullivan.utils, 
-  ru: sullivan.rawUtils, 
-  S: sullivan.sheet, 
-  c: sullivan.class, 
+  u: sullivan.utils,
+  ru: sullivan.rawUtils,
+  S: sullivan.sheet,
+  c: sullivan.class,
 }
 
 // the API becomes way shorter:
 className={S.c(
- S.u.flex.center, 
+ S.u.flex.center,
  S.u.text.tight,
  S.u.text.large,
  S.u.bg.red,
@@ -107,14 +107,14 @@ className={S.c(
 ```
 
 ### Using your own Styleguide
-When bootstraping Sullivan you can pass in maps of:  
+When bootstraping Sullivan you can pass in maps of:
 - `sizes`: for margins and paddings, (default to t-shirt sizes syntax)
 - `colors`: for backgrounds, text colors, svg colors...
 - `textSizes`: for text sizes (good ol' typography), (default to t-shirt sizes syntax)
 - `lieHeights`: for text sizes (good ol' typography), (default to "tightness" sizes)
 - `z`: for depth mapping, (default to z[0-9])
 
-A styleguide map is a simple object with a human readable key (to be used across utils) and a value.  
+A styleguide map is a simple object with a human readable key (to be used across utils) and a value.
 The defaults included uses "t-shirt sizes" and a modular scale for sizes and textSizes, example:
 
 ```js
@@ -168,7 +168,7 @@ the same object passed in (or the default) of text sizes to be used in custom st
 the same object passed in (or the default) of z-indexes to be used in custom stylesheets.
 
 ##Utils
-New utils are constantly being added, this is the current list:  
+New utils are constantly being added, this is the current list:
 - spacing
 - disp
 - bg
@@ -180,7 +180,7 @@ New utils are constantly being added, this is the current list:
 **Requires sizes**
 
 Mapping to margins and paddings according to passed in size values,
-for ease of use they are not namespaced by `spacing` but shorthanded based on their function:  
+for ease of use they are not namespaced by `spacing` but shorthanded based on their function:
 - `ma/pa`: Margin/Padding All (top, right, bottom, left)
 - `mv/pv`: Margin/Padding Vertical (top, bottom)
 - `mh/ph`: Margin/Padding Horizontal (right, left)
@@ -189,8 +189,8 @@ for ease of use they are not namespaced by `spacing` but shorthanded based on th
 - `ml/pl`: Margin/Padding Left
 - `mr/pr`: Margin/Padding Right
 
-The values are based on what you pass through the `sizes` argument.  
-Example based on defaults:  
+The values are based on what you pass through the `sizes` argument.
+Example based on defaults:
 `util.mt.small // outputs a classname with {margin-top: 5px}`
 
 #### Disp
@@ -202,7 +202,7 @@ Mapping to css display values
 - `block` : {display: block}
 - `flex` : {display: flex}
 
-Example:  
+Example:
 `util.disp.flex // outputs a classname with {display: flex}`
 
 #### BG
@@ -210,7 +210,7 @@ Example:
 
 Mapping to background-color values according to passed in colors, also a small set of quick patterns.
 
-Example based on defaults:  
+Example based on defaults:
 `util.bg.black // outputs a classname with {background-color: '#000'}`
 
 ##### bg.cover
@@ -226,18 +226,18 @@ Outputs:
 #### SVG
 **Requires colors**
 
-Mapping to fill values according to passed in colors.  
-Example based on defaults:  
+Mapping to fill values according to passed in colors.
+Example based on defaults:
 `util.svg.black // outputs a classname with {fill: '#000'}`
 
 #### Z
 **Requires z**
 
-Mapping to z-index values according to passed in z map.  
-Example based on defaults:  
+Mapping to z-index values according to passed in z map.
+Example based on defaults:
 `util.z.z1 // outputs a classname with {z-index: '1'}`
 
-z-index is a special case because beside the private API here provided you should also apply your own pattern on top with what makes sense to you:  
+z-index is a special case because beside the private API here provided you should also apply your own pattern on top with what makes sense to you:
 ```
 sullivan.myZ = {
  nav: sullivan.z.z5,
@@ -250,17 +250,17 @@ sullivan.myZ = {
 #### Text
 **Requires textSizes and colors**
 
-Mapping to color, size and weights values according to passed in maps and a set of utils  
-Example color based on defaults:  
+Mapping to color, size and weights values according to passed in maps and a set of utils
+Example color based on defaults:
 `util.text.black // outputs a classname with {color: '#000'}`
 
-Example size based on defaults:  
+Example size based on defaults:
 `util.text.small // outputs a classname with {font-size: '12px'}`
 
-Example line-height based on defaults:  
+Example line-height based on defaults:
 `util.text.loose // outputs a classname with {line-height: 1.2}`
 
-Example weight:  
+Example weight:
 `util.text.light // outputs a classname with {font-weight: '300'}`
 
 ##### text.truncate
@@ -289,8 +289,8 @@ Values:
 - `Around`: space-around
 - `Between`: space-between
 
-With properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):  
-`util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`  
+With properties and values combined they summon earth's greatest champion (yes, this is a captain planet reference):
+`util.flex.alignEnd // outputs a classname with {align-items: 'flex-end'}`
 `util.flex.justifyAround // outputs a classname with {justify-content: 'space-around'}`
 
 ##### flex.center
@@ -311,7 +311,7 @@ Outputs:
   flex-direction: 'column'
 }
 ```
-If you need to do anything else with flex, you're on your own.  
+If you need to do anything else with flex, you're on your own.
 
 ## TODO
 - Finish this readme file.
@@ -326,6 +326,9 @@ Please do, this is built on top of other amazing open-source projects and belong
 - Suggestions? Read above!
 - bugs? Read above!
 - this code smells and you can do better? Yes! You know what to do!
+
+# Special Thanks
+This project initially sparked from working on small to big scale React.js related projects and feeling the pains of using CSS in JS, special mention to [Kontor.com](http://kontor.com) for giving me room to introduce and mature some of these concepts, also (@colindresj)[https://github.com/colindresj] and (@dkozma)[https://github.com/dkozma] for brainstorming ideas and giving suggestions.
 
 # License (MIT)
 

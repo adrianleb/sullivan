@@ -1,7 +1,7 @@
-import reducer from './helpers/reducer';
+import propertyReducer from '../helpers/property-reducer';
 
 export default (colors = {}) => {
-  const bg = reducer(colors, 'backgroundColor');
+  const bg = propertyReducer(colors, 'backgroundColor');
 
   // background cover aye
   bg.cover = {

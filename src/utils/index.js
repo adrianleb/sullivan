@@ -9,6 +9,7 @@ import zUtil from './z';
 // TODO validate maps passed in...
 export default ({sizes, textSizes, colors, lineHeights, z}) => {
   z = zUtil(z);
+
   return Object.assign(
     {},
     {disp},
