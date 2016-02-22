@@ -49,6 +49,10 @@ var Sullivan = require('sullivan').default
 
 Initialize the singleton somewhere in your project, Sullivan comes with opinional defaults but you should pass in your own map of values according to your project styleguide.
 
+####**for a detailed example check out [The example project](https://github.com/adrianleb/sullivan/blob/master/example/index.js)**  
+
+
+
 ```js
 
 import Sullivan from 'sullivan';
