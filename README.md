@@ -78,9 +78,9 @@ const FunkyComponent = () => {
   return (
     <div
       className={sullivan.class(
-        sullivan.util.flex.center,
-        sullivan.util.text.yellow,
-        sullivan.util.bg.cover
+        sullivan.utils.flex.center,
+        sullivan.utils.text.yellow,
+        sullivan.utils.bg.cover
       )}
       style={
         sullivan.inline.bg.image("https://placekitten.com/200/300")
