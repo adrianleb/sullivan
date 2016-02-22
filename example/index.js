@@ -16,7 +16,7 @@ class App extends React.Component {
           S.utils.bg.cover // Helper around background properties
         )}
         style={
-          S.inline.bg.image("http://placeburger.net/400/400") // Image an user image coming from a fetched resource...
+          S.inline.bg.image("http://placeburger.net/400/400") // This can be a user image coming from a fetched resource...
         }>
         So Pretty!
       </div>
