@@ -4,7 +4,6 @@ Sullivan
 **What?**
 
 Opinionated toolkit to quickly build visual interfaces in JS.  
-For now mostly a POC.
 
 **Why?**
 
@@ -17,7 +16,7 @@ For now mostly a POC.
 
 Uses Aphrodite [https://github.com/Khan/aphrodite](https://github.com/Khan/aphrodite) under the hood to dynamically generate classnames and inject styles.
 
-prefixes everything so you don't have to think about it (thanks to Aphrodite);
+Prefixes everything so you don't have to think about it (thanks to Aphrodite);
 
 Provides a library of functional css styles generated according to passed in styleguide values.
 
