@@ -19,9 +19,9 @@ Uses Aphrodite [https://github.com/Khan/aphrodite](https://github.com/Khan/aphro
 
 prefixes everything so you don't have to think about it (thanks to Aphrodite);
 
-Provides a catalogue of style utilities (somewhat [BEM](https://en.bem.info/) inspired).
+Provides a library of functional css styles generated according to passed in styleguide values.
 
-Abstracts around a few overly verbosed css syntaxes (I'm looking at you flex).
+Abstracts around overly verbosed css syntaxes.
 
 Includes a set of transform functions to inject dynamic styles.
 
