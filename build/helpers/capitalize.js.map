@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/helpers/capitalize.js"],"names":[],"mappings":";;;;;;kBAAe,UAAC,MAAD,EAAY;AACvB,WAAO,OAAO,MAAP,CAAc,CAAd,EAAiB,WAAjB,KAAiC,OAAO,KAAP,CAAa,CAAb,CAAjC,CADgB;CAAZ","file":"capitalize.js","sourcesContent":["export default (string) => {\n    return string.charAt(0).toUpperCase() + string.slice(1);\n};\n"]}

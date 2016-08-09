@@ -1,6 +1,6 @@
 {
   "name": "sullivan",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools to quickly build interfaces in JS",
   "format": "es6",
   "main": "build/index.js",
@@ -11,14 +11,13 @@
     "test": "./.scripts/test.sh",
     "clean": "./.scripts/clean.sh",
     "prepublish": "npm run build",
-    "build": "./.scripts/build.sh",
+    "build": "NODE_ENV=production ./.scripts/build.sh",
     "build-umd": "./.scripts/build-umd.sh",
     "build-cjs": "./.scripts/build-cjs.sh",
     "build-amd": "./.scripts/build-amd.sh",
     "build-global": "./.scripts/build-global.sh"
   },
   "dependencies": {
-    "aphrodite": "^0.1.2",
     "lodash.isfunction": "^3.0.7",
     "lodash.pickby": "^4.1.0"
   },
