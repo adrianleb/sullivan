@@ -94,36 +94,4 @@ function resetAnchors(config) {
   `;
 }
 
-/**
- * Transitional styles
- * styles we plan on deprecating but are still referenced from the app
- *
- * @param {obj} config
- */
-function resetTemp(config) {
-  return `
-    a.link {
-      color: ${config.colors.blue};
-    }
-
-    a.link:hover {
-      color: ${config.colors.blueLight};
-    }
-
-    a.link:active {
-      color: ${config.colors.blueDark};
-    }
-
-    a.link--decorated {
-      text-decoration: 'underline'
-    }
-
-    .eyebrow {
-      font-size: ${config.textSizes.h6}px;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-    }
-  `;
-}
-
 export default reset;

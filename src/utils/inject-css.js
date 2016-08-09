@@ -5,7 +5,7 @@
  * @param {String} namespace
  */
 export default function injectCss(cssString, namespace) {
-  const dataAttr = `data-kontor-${namespace}`;
+  const dataAttr = `data-sullivan-${namespace}`;
 
   if (!document.querySelector(`style[${dataAttr}]`)) {
     const head = document.head || document.getElementsByTagName('head')[0];
