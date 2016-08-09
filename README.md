@@ -120,8 +120,9 @@ When bootstraping Sullivan you must pass in a styleguide configuration containin
 - `lineHeights`: for text sizes (good ol' typography)
 - `z`: for depth mapping, (default to z[0-9])
 
-A styleguide map is a simple object with a human readable keys (to be used across utils) and values, with the exception of z-index and reset styles handling
+[You can see an example styleguide here](https://github.com/adrianleb/sullivan/blob/master/example/styleguide.js)
 
+A styleguide map is an object with a human readable keys (to be used across utils) and values, with the exception of z-index and reset styles handling
 You're welcome to call your keys anything you want, just be careful not to make them clash (for example, calling a color 'medium' and a textSize 'medium' will break your text utils).
 
 ## API
