@@ -10,6 +10,7 @@
   "author": "Adrian le Bas",
   "license": "MIT",
   "dependencies": {
+    "aphrodite": "^0.5.0",
     "hjs-webpack": "^7.2.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",

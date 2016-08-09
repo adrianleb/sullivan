@@ -1,4 +1,4 @@
-import capitalize from './helpers/capitalize';
+import capitalize from '../helpers/capitalize';
 
 export default function(mediaQueries) {
   const prefix = '@media';

@@ -1,11 +1,11 @@
 {
   "name": "sullivan",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "description": "Tools to quickly build interfaces in JS",
   "format": "es6",
-  "main": "index.js",
-  "browser": "global.js",
-  "global": "global.js",
+  "main": "build/index.js",
+  "browser": "build/global.js",
+  "global": "build/global.js",
   "license": "MIT",
   "scripts": {
     "test": "./.scripts/test.sh",

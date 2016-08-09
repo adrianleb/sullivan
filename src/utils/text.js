@@ -1,20 +1,19 @@
-export default ({textSizes, colors, lineHeights}) => {
-  // FONT-WEIGHT
-  // TODO use right vals
-  const text = [
-    ['lighter', 400],
-    ['light', 400],
-    ['normal', 400],
-    ['bold', 600],
-    ['bolder', 600]
-  ].reduce((o, v) => {
-    o[v[0]] = { fontWeight: v[1] };
-    return o;
+export default ({textSizes, colors, lineHeights, textWeights}) => {
+  const text = ['left', 'right', 'center'].reduce((p, v) => {
+    p[v] = {textAlign: v};
+    return p;
   }, {});
+
+  if (textWeights) {
+    Object.keys(textWeights).map(s => {
+      text[s] = { fontWeight: textWeights[s] };
+    });
+  }
 
   if (textSizes) {
     Object.keys(textSizes).map(s => {
       text[s] = { fontSize: textSizes[s] };
+      text[s + 'Double'] = { fontSize: `${textSizes[s] * 2}px` };
     });
   }
 
@@ -36,6 +35,10 @@ export default ({textSizes, colors, lineHeights}) => {
     overflow: 'hidden',
     textOverflow: 'ellipsis'
   };
+
+  text.linkDecorated = {
+    textDecoration: 'underline'
+  }
 
   return {text};
 };

@@ -1,15 +1,16 @@
 Sullivan
 ===========
+*Totally WIP: Here be dragons*
 
 **What?**
 
-Opinionated toolkit to quickly build visual interfaces in JS.  
+Opinionated toolkit to quickly build visual interfaces in JS.
 
 **Why?**
 
-:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.  
-:white_check_mark: Because some css patterns are really annoying to rewrite all the time.  
-:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.  
+:white_check_mark: Because we're humans who make mistakes and need constraints around a predefined styleguide.
+:white_check_mark: Because some css patterns are really annoying to rewrite all the time.
+:white_check_mark: Because there are too many different ways to peel this potato (styling in JS) and sometimes we just want to write code.
 :white_check_mark: Because we're lazy developers.
 
 **How?**
@@ -26,8 +27,6 @@ Includes a set of transform functions to inject dynamic styles.
 
 Sullivan is built with React in mind but doesn't depend on it so can be used in other non-react project.
 
-**Totally WIP: Here be dragons**
-
 ## Installation
 
 Using [npm](https://www.npmjs.com/):
@@ -37,107 +36,93 @@ Using [npm](https://www.npmjs.com/):
 Then with a module bundler like [webpack](https://webpack.github.io/) that supports either CommonJS or ES2015 modules, use as you would anything else:
 
 ```js
+// sully.js
 // using an ES6 transpiler, like babel
-import Sullivan from 'sullivan'
 
-// not using an ES6 transpiler
-var Sullivan = require('sullivan').default
+import Sullivan from 'sullivan'
+import {StyleSheet, css} from 'aphrodite'
+import Styleguide from './styleguide' // BYOS - Bring Your Own Styleguide!
+
 ```
 
 ## Usage
 
 Initialize the singleton somewhere in your project, Sullivan comes with opinional defaults but you should pass in your own map of values according to your project styleguide.
 
-####**for a detailed example check out [The example project](https://github.com/adrianleb/sullivan/blob/master/example/index.js)**  
+####**for a detailed example check out [The example project](https://github.com/adrianleb/sullivan/blob/master/example/index.js)**
 
 
 
 ```js
+// ...
 
-import Sullivan from 'sullivan';
-import {sizes, colors, textSizes, lineHeights, z} from './your-styleguide';
-
-const sullivan = new Sullivan({
-  sizes,
-  colors,
-  textSizes,
-  lineHeights,
-  z
+const sully = new Sullivan({
+  aphroditeStylesheet: StyleSheet,
+  styleguide: Styleguide
 });
+export default sully;
 
-export sullivan;
+
+// Alternatively you can also export just set of things to work with using a convention your team agrees on.
+const {utils: classes, rawUtils: raw, inline, mq, z, styleguide} = sully;
+const {colors, sizes, textSizes} = styleguide;
+
+export {
+  classes,
+  raw,
+  inline,
+  mq,
+  z,
+  colors,
+  sizes,
+  textSizes
+}
+
 ```
 
 Then inside your component:
 
 ```js
-import sullivan from '..';
+// component.js
+import {classes, inline, raw, lineHeights} from './sully';
 
 const FunkyComponent = () => {
   return (
     <div
-      className={sullivan.class(
-        sullivan.utils.flex.center,
-        sullivan.utils.text.yellow,
-        sullivan.utils.bg.cover
+      className={css(
+        ss.wrap,
+        classes.flex.center,
+        classes.text.yellow,
+        classes.bg.cover
       )}
       style={
-        sullivan.inline.bg.image("https://placekitten.com/200/300")
+        inline.bg.image("https://placekitten.com/200/300")
       }>
       Content will be flex centered and yellow with a pretty kitten covering the background!
     </div>
   );
 };
-```
 
-You might find sullivan's syntax overly verbosed (for the sake of human readability).
-If thats the case, obfuscate to your preference.
-```js
-const S = {
-  u: sullivan.utils,
-  ru: sullivan.rawUtils,
-  S: sullivan.sheet,
-  c: sullivan.class,
-}
-
-// the API becomes way shorter:
-className={S.c(
- S.u.flex.center,
- S.u.text.tight,
- S.u.text.large,
- S.u.bg.red,
-)}
+const ss = StyleSheet.create({
+  wrap: {
+    ...raw.bg.blue,
+    ...raw.ma.large,
+    lineHeight: lineHeights.loose
+  }
+});
 ```
 
 ### Using your own Styleguide
-When bootstraping Sullivan you can pass in maps of:
-- `sizes`: for margins and paddings, (default to t-shirt sizes syntax)
+When bootstraping Sullivan you must pass in a styleguide configuration containing:
+- `sizes`: for margins and paddings
 - `colors`: for backgrounds, text colors, svg colors...
-- `textSizes`: for text sizes (good ol' typography), (default to t-shirt sizes syntax)
-- `lieHeights`: for text sizes (good ol' typography), (default to "tightness" sizes)
+- `textSizes`: for text sizes (good ol' typography)
+- `lineHeights`: for text sizes (good ol' typography)
 - `z`: for depth mapping, (default to z[0-9])
 
-A styleguide map is a simple object with a human readable key (to be used across utils) and a value.
-The defaults included uses "t-shirt sizes" and a modular scale for sizes and textSizes, example:
+A styleguide map is a simple object with a human readable keys (to be used across utils) and values, with the exception of z-index and reset styles handling
 
-```js
-const baseSize = 5;
-
-export default {
-  auto: 'auto',
-  none: 0,
-  xsmall: 2,
-  small: baseSize,
-  medium: baseSize * 2,
-  large: baseSize * 3,
-  xlarge: baseSize * 4,
-  xxlarge: baseSize * 6,
-  xxxlarge: baseSize * 9,
-  huge: baseSize * 12
-};
-```
-
-You're welcome to call your keys anything you want, just be careful not to make them clash with eachother (for example, calling a color 'medium' and a textSize 'medium' will break your text utils, but I mean...c'mon..).
+You're welcome to call your keys anything you want, just be careful not to make them clash (for example, calling a color 'medium' and a textSize 'medium' will break your text utils).
 
 ## API
 
@@ -158,26 +143,19 @@ Same as `rawUtils` but pre-transformed by Aphrodite's `Stylesheet.create` method
 ### `inline`
 Functional utils returning an object with a transformed css declaration.
 
-### `sizes`
-the same object passed in (or the default) of sizes to be used in custom stylesheets.
-
-### `colors`
-the same object passed in (or the default) of colors to be used in custom stylesheets.
-
-### `textSizes`
-the same object passed in (or the default) of text sizes to be used in custom stylesheets.
-
 ### `z`
 the same object passed in (or the default) of z-indexes to be used in custom stylesheets.
 
 ##Utils
 New utils are constantly being added, this is the current list:
 - spacing
+- pos
 - disp
 - bg
 - svg
 - text
 - flex
+- cursor
 
 #### Spacing
 **Requires sizes**
@@ -194,7 +172,7 @@ for ease of use they are not namespaced by `spacing` but shorthanded based on th
 
 The values are based on what you pass through the `sizes` argument.
 Example based on defaults:
-`util.mt.small // outputs a classname with {margin-top: 5px}`
+`utils.mt.small // outputs a classname with {margin-top: 5px}`
 
 #### Disp
 **No requirements**
@@ -204,6 +182,7 @@ Mapping to css display values
 - `inlineBlock` : {display: inline-block}
 - `block` : {display: block}
 - `flex` : {display: flex}
+- `none` : {display: none}
 
 Example:
 `util.disp.flex // outputs a classname with {display: flex}`
@@ -317,18 +296,18 @@ Outputs:
 If you need to do anything else with flex, you're on your own.
 
 ## TODO
-- Finish this readme file.  
-- Truncation text util.  
-- A helper to generate a "living styleguide" page based on passed in values and used utils.  
-- Some tests would be nice.  
-- A website would be cool.  
+- Finish this readme file.
+- Truncation text util.
+- A helper to generate a "living styleguide" page based on passed in values and used utils.
+- Some tests would be nice.
+- A website would be cool.
 
 # Contributing
-Please do, this is built on top of other amazing open-source projects and belongs to the community.  
-- Ideas? suggest anything over an Issue or PR!  
-- Suggestions? Read above!  
-- bugs? Read above!  
-- this code smells and you can do better? Yes! You know what to do!  
+Please do, this is built on top of other amazing open-source projects and belongs to the community.
+- Ideas? suggest anything over an Issue or PR!
+- Suggestions? Read above!
+- bugs? Read above!
+- this code smells and you can do better? Yes! You know what to do!
 
 # Special Thanks
 This project initially sparked from working on small to big scale React.js related projects and feeling the pains of using CSS in JS, special mention to [Kontor.com](http://kontor.com) for giving me room to introduce and mature some of these concepts, also [@colindresj] (https://github.com/colindresj) and [@dkozma](https://github.com/dkozma) for brainstorming ideas and giving suggestions.
